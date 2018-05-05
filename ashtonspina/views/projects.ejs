@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="/stylesheets/index.css" rel="stylesheet" type="text/css">
+    </head>
+    <% include templates/head.ejs %>
+    <script>
+        var imageData = <%- JSON.stringify(imageData) %>;
+    </script>
+    <body>
+        <!-- This imports the naviagtion template I made -->
+        <% include templates/navigation.ejs %>
+        <div id="wrapper">
+            <% include templates/sidebar.ejs %>
+            <!-- Page Content -->
+            <div id = "page-content-wrapper">
+                <div class="container-fluid">
+                    <!-- This imports an image -->
+                    <div class = "row">
+                        <div class = "text-center">
+                             <div id="myCarousel" class="carousel slide" data-ride="carousel" >
+                              <!-- Indicators -->
+                              <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                
+                                <% for(var i = 1; i < imageData.imageUrl.length; ++i) {%>
+                                    <li data-target="#myCarousel" data-slide-to="i"></li>
+                                <% } %>
+                              </ol>
+
+                              <!-- Wrapper for slides -->
+                              <div class="carousel-inner" role="listbox" >
+                                <div class="item active">
+                                  <img src= <%- imageData.imageUrl[0] %> >
+                                </div>
+                                <% for(var i = 1; i < imageData.imageUrl.length; ++i) {%>
+                                    <div class="item">
+                                        <img src= <%- imageData.imageUrl[i] %> >
+                                    </div>
+                                <% } %>
+                              </div>
+
+                              <!-- Left and right controls -->
+                              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <!-- Columns -->
+                        <div class = "col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2">
+                            <div id="gitLink">
+                                <h3>Monitoring in Cloud Computing</h3>
+                                <button id = "linkedin-toggle" class="btn btn-default" onclick="location.href = 'https://github.com/a-d-spina-student/waste-cloud-computing';">
+                                    <img src= "/images/githubLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                            <div id="gitLink">
+                                <h3>Cognitive Sensors</h3>
+                                <button id = "linkedin-toggle" class="btn btn-default" onclick="location.href = 'https://github.com/RUGSoftEng/2017-Cognitive-Sensors';">
+                                    <img src= "/images/githubLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                            <div id="gitLink">
+                                <h3>Dynamic Bus Scheduling</h3>
+                                <button id = "linkedin-toggle" class="btn btn-default" onclick="location.href = 'https://github.com/babeanu-dorian/dynamic-bus-schedule-webservice';">
+                                    <img src= "/images/githubLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                            <div id="gitLink">
+                                <h3>What the World</h3>
+                                <button id = "linkedin-toggle" class="btn btn-default" onclick="location.href = 'https://github.com/spinaadbusiness/WhatTheWorld';">
+                                    <img src= "/images/githubLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                            <div id="gitLink">
+                                <h3>Ashton Spina Website</h3>
+                                <button id = "linkedin-toggle" class="btn btn-default" onclick="location.href = 'https://github.com/a-d-spina-student/ashtonspina';">
+                                    <img src= "/images/githubLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class = "col-xs-12 col-sm-6 col-lg-4">
+                            <div id="whoPane"> 
+                            	<h2>Projects:</h2>
+                                <h4>Monitoring Waste and Cost in Cloud Computing:</h4>
+                                <p>
+                                This project formed my thesis for my undergraduate degree at the University of Groningen.  The focus of this project was to find a generalized method of monitoring cloud deployments in VMs.  A probe would be embeded in any VM and would report data back to a server which would serve this data in an API or visualize it for the user.  The goal was to allow cloud deployments to be monitored across public, private, or hybrid clouds and on any cloud provider platform.  The eventual goal of all this was to allow calculations of cost and waste and optimization of deployed features.
+                                </p>
+                                <h4>Cognitive Sensors</h4>
+                                <p>
+                                This project was made for a professor at the University of Groningen.  The intention of this was to allow a study that the University was conducting at the time to be performed on mobile so that the participants could participate without having to come into a laboratory setting.  For this I made an Android App and linked it to a Google Sheet where the study owner could change questions and possible responses and aggregate the data for use in their study.
+                                </p>
+                                <h4>Dynamic Bus Scheduling</h4>
+                                <p>
+                                This project was an exploration of distributed systems.  A peer to peer network of NodeJS servers were made to handle web requests for bus schedules.  The front end of the website appears to be a simple website using AngularJS to make requests for bus timings, but the backend is a dynamically-sized cluster of servers that redistribute their load and act as failsafes for eachother.
+                                </p>
+                                <h4>What the World</h4>
+                                <p>
+                                This was my first web project.  Here I learned all the basics of web development.  Although, its not complicated nor complete, it stands as testament to my ability to learn and had a focus on integrating many different modules into one project.
+                                </p>
+                                <h4>Ashton Spina Website</h4>
+                                <p>
+                                This is the website you're looking at now.  If you want to see how it was coded, you can look at the github link.
+                                </p>
+                            </div>
+                        </div>
+                        <div class = "col-xs-12 col-sm-12 col-lg-4">
+                            <div id="article"> </div>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <% include templates/footer.ejs %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src= "/javascripts/projectsCode.js">
+            //Here be all the code for index.ejs
+        </script>
+    </body>
+</html>

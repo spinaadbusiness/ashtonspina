@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="/stylesheets/contact.css" rel="stylesheet" type="text/css">
+    </head>
+    <% include templates/head.ejs %>
+    <body>
+        <!-- This imports the naviagtion template I made -->
+        <% include templates/navigation.ejs %>
+        <div id="wrapper">
+            <% include templates/sidebar.ejs %>
+            <!-- Page Content -->
+            <div id = "page-content-wrapper">
+                <div class = "row">
+                    <!-- Columns -->
+                    <div class = "col-xs-12 col-sm-6 col-lg-4">
+                        <div id="contactLinks">
+                            <div id = "linkedinPane">
+                                <button id = "linkedin-toggle" class="btn btn-default" onclick="location.href = 'https://www.linkedin.com/in/spinaadbusiness/';">
+                                    <img src= "/images/linkedinLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                            <div id = "emailPane">  
+                                <button id = "email-toggle" class="btn btn-default">
+                                    <img src= "/images/emailLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                            <div id = "phonePane">  
+                                <button id = "phone-toggle" class="btn btn-default">
+                                    <img src= "/images/phoneLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "col-xs-12 col-sm-6 col-lg-4">
+                        <div id="toDoPane"> 
+                            <h2>Details : </h2>
+                            <p> It is much preferred that contact is made through email or linkedin message.  If for some reason those options fail, my personal phone is also provided as an option.</p>
+                        </div>
+                    </div>
+                    <div class = "col-xs-12 col-sm-12 col-lg-4">
+                        <div id="article"> </div>
+                    </div>
+                </div>
+                <div class = "row">
+                    <% include templates/footer.ejs %>
+                </div>
+            </div>
+        </div>
+  
+        <script src= "/javascripts/contactCode.js">
+            //Here be all the code for index.ejs
+        </script>  
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

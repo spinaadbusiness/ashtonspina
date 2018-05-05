@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="/stylesheets/index.css" rel="stylesheet" type="text/css">
+    </head>
+    <% include templates/head.ejs %>
+    <script>
+        var imageData = <%- JSON.stringify(imageData) %>;
+    </script>
+    <body>
+        <!-- This imports the naviagtion template I made -->
+        <% include templates/navigation.ejs %>
+        <div id="wrapper">
+            <% include templates/sidebar.ejs %>
+            <!-- Page Content -->
+            <div id = "page-content-wrapper">
+                <div class="container-fluid">
+                    <!-- This imports an image -->
+                    <div class = "row">
+                        <div class = "text-center">
+                             <div id="myCarousel" class="carousel slide" data-ride="carousel" >
+                              <!-- Indicators -->
+                              <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                
+                                <% for(var i = 1; i < imageData.imageUrl.length; ++i) {%>
+                                    <li data-target="#myCarousel" data-slide-to="i"></li>
+                                <% } %>
+                              </ol>
+
+                              <!-- Wrapper for slides -->
+                              <div class="carousel-inner" role="listbox" >
+                                <div class="item active">
+                                  <img src= <%- imageData.imageUrl[0] %> >
+                                </div>
+                                <% for(var i = 1; i < imageData.imageUrl.length; ++i) {%>
+                                    <div class="item">
+                                        <img src= <%- imageData.imageUrl[i] %> >
+                                    </div>
+                                <% } %>
+                              </div>
+
+                              <!-- Left and right controls -->
+                              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <!-- Columns -->
+                        <div class = "col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2">
+                            <div id="linkedinLink">
+                                <h3>Linkedin:</h3>
+                                <button id = "linkedin-toggle" class="btn btn-default" onclick="location.href = 'https://www.linkedin.com/in/spinaadbusiness/';">
+                                    <img src= "/images/linkedinLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                            <div id="projectGithubLink">
+                                <h3>Personal Projects Github:</h3>
+                                <button id = "linkedin-toggle" class="btn btn-default" onclick="location.href = 'https://github.com/a-d-spina-student?tab=repositories';">
+                                    <img src= "/images/githubLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                            <div id="schoolGithubLink">
+                                <h3>School Github:</h3>
+                                <button id = "linkedin-toggle" class="btn btn-default" onclick="location.href = 'https://github.com/spinaadbusiness?tab=repositories';">
+                                    <img src= "/images/githubLogo.png" class = "img-rounded img-responsive" >
+                                </button>
+                            </div>
+                        </div>
+                        <div class = "col-xs-12 col-sm-6 col-lg-4">
+                            <div id="whoPane"> 
+                            	<h3>Who Am I?:</h3>
+                                <p>
+                                    Currently a Junior Developer with a demonstrated history of work in areas which require strong communication skills and a penchant for quick and attentive learning. Experience in Java, C, C++ and LaTeX, as well as experience to a lesser extent in languages such as SQL, R, Python, and Haskell. I've also been working on some personal projects that involve anything from JavaScript and NodeJS to Android Apps with XML and Java. Bachelor's degree focused in Computing Science from University of Groningen with a multitude of courses of courses in algorithms, data structures, mathematics, and other subjects such as Signals and Systems, Software Design, Computer Graphics, etc.
+                                </p>
+                                <p>
+                                    On a more personal level, I'm a Canadian living in the Netherlands with EU citizenship. I love learning new things and am always at home in a new place. I have quite a few years of non-computing science related work experience and have developed a passion for work where I can make things and solve problems, as well as a strong work ethic as any of my previous employers will testify. A combination of these traits is what led me to not only the field I study, but also far from home.
+                                </p>
+                                <p>
+                                    I spend most of my free time reading about subjects such as history, politics, economics, and languages. I'm also always happy to play pretty much any sport and have played many recreationally in the past. I'm not picky about where I make a life for myself, I just hope I can fill it with interesting and thoughtful people.
+                                </p>
+                            </div>
+                        </div>
+                        <div class = "col-xs-12 col-sm-12 col-lg-4">
+                            <div id="article"> </div>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <% include templates/footer.ejs %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src= "/javascripts/indexCode.js">
+            //Here be all the code for index.ejs
+        </script>
+    </body>
+</html>
